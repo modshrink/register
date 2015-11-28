@@ -1,4 +1,5 @@
 .htaccess
 .htpasswd
+*.sql
 config.php
 
