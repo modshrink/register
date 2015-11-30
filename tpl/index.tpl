@@ -1,12 +1,13 @@
-<html>                                                                                                                                                                                                
-<head>                                                                                                                                                                                                
-        <title>pm</title>                                                                                                                                                                             
-        <link href="../css/bootstrap.min.css" rel="stylesheet">                                                                                                                                       
-        <link href="../css/style.css" rel="stylesheet">                                                                                                                                               
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>                                                                                                     
-        <script src="../js/bootstrap.min.js"></script>                                                                                                                                                
-        <meta name="viewport" content="width=device-width, initial-scale=1">                                                                                                                          
-</head>                                                                                                                                                                                               
+<html>
+<head>
+	<title><%SITE_TITLE%></title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="noindex,nofollow">
+</head>
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -37,4 +38,4 @@
 </div> <!-- .container -->
 
 </body>
-</html> 
+</html>

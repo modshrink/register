@@ -1,6 +1,6 @@
 <?php
-require_once( '../config.php' );
-require_once( 'functions.php' );
+require_once( dirname(__FILE__) . '/../config.php' );
+require_once( dirname(__FILE__) . '/functions.php' );
 
 class Login {
 	private $mysqli = null;
@@ -46,21 +46,5 @@ EOM;
 		return $row['salt'];
 	}
 
-
-
 } // class Login end
-
-$login = new Login();
-?>
-<?php
-$alert = $login->db_connect_check_message();
-$alert .= ssl_message();
-?>
-
-<?php
-$contents = file_get_contents( '../tpl/index.tpl' );
-$contents = str_replace( '<%CONTENTS%>', $alert, $contents );
-
-echo $contents;
-
 
