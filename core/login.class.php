@@ -22,15 +22,21 @@ class Login {
 
 	/* DBとの接続状態によるメッセージ(Bootstrap3) */
 	public function db_connect_check_message() {
-		if( $this->db_connect_check() ) : ?>
-		<div role="alert" class="alert alert-success">
-			<strong>DB</strong> <p>connect success.</p>
-		</div>
-		<?php else : ?>
-		<div role="alert" class="alert alert-danger">
-			<strong>DB</strong> <p>connect error.</p>
-		</div>
-		<?php endif;
+		if( $this->db_connect_check() ) :
+$html = <<<EOM
+<div role="alert" class="alert alert-success">
+	<strong>DB</strong> <p>connect success.</p>
+</div>
+EOM;
+		else :
+$html = <<<EOM
+<div role="alert" class="alert alert-danger">
+	<strong>DB</strong> <p>connect error.</p>
+</div>
+EOM;
+		endif;
+
+		return $html;
 	}
 
 	/* DBに格納されたSaltの値を取得 */
@@ -56,3 +62,5 @@ $contents = file_get_contents( '../tpl/index.tpl' );
 $contents = str_replace( '<%CONTENTS%>', $alert, $contents );
 
 echo $contents;
+
+
