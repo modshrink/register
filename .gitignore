@@ -1,5 +1,6 @@
 .htaccess
 .htpasswd
+*.swp
 *.sql
 config.php
 
