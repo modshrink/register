@@ -54,5 +54,20 @@ EOM;
 		return false;
 	}
 
-
+	public function login_message() {
+		if( $this->login( $_POST['user'], $_POST['password'] ) ) :
+$html = <<<EOM
+<div role="alert" class="alert alert-success">
+	<strong>LOGIN</strong> <p>success.</p>
+</div>
+EOM;
+		else :
+$html = <<<EOM
+<div role="alert" class="alert alert-danger">
+	<strong>LOGIN</strong> <p>error.</p>
+</div>
+EOM;
+		endif;
+		return $html;
+	}
 } // class Login end
