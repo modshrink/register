@@ -1,48 +1,17 @@
 <?php
-require_once( 'functions.php' );
+require_once( dirname(__FILE__) . '/core/login.class.php' );
 
-// DB接続
-$link = mysql_connect( DB_HOST, DB_USER, DB_PASSWORD );
-if ( !$link ) {
-    die( 'Database connect failed.' . mysql_error() );
-}
+$login = new Login();
 
-$mes_db_connect_success = '<p>Database connect success.</p>';
+if( $login->login( $_POST['user'], $_POST['password'] ) ) :
+	echo 'ログイン成功';
+else :
+	echo 'ログイン失敗';
+endif;
 
-$db_selected = mysql_select_db( 'pm', $link );
-
-$mes_db_select_success = '<p>Database select success.</p>';
-
-// sql query
-$sql = "SELECT * FROM options";
-$result = mysql_query($sql, $link) or die("クエリの送信に失敗しました。<br />SQL:".$sql);
-$column = mysql_fetch_array( $result );
-$salt = $column['salt'];
-$db_user = $column['user'];
-$db_password = $column['password'];
-$login_flag = false;
-
-if( !empty( $_POST['user'] ) && !empty( $_POST['password'] ) ) {
-	//パスワードはハッシュ化する
-	$input_user = $_POST['user'];
-	$input_password = $_POST['password'];
-	$password_hash = md5( $input_password . $salt );
-	if( ( $db_user === $input_user ) && ( $db_password === $password_hash ) ) $login_flag = true;
-}
-
-if( $login_flag ) {
-	header( "Location: view.php" );
-}
-
-if ( !$db_selected ){
-	die( 'データベース選択失敗です。' . mysql_error() );
-}
-
-//$close_flag = mysql_close($link);
-
-if ($close_flag){
-	$mes_db_closed = '<p>Database closed.</p>';
-}
+//if( $login_flag ) {
+//	header( "Location: view.php" );
+//}
 
 ?>
 
@@ -59,30 +28,6 @@ if ($close_flag){
 <div class="container">
 
 <h1>a-----m------</h1>
-<?php if( $mes_db_connect_success ) : ?>
-<div role="alert" class="alert alert-success">
-	<strong>DB</strong> <?php echo $mes_db_connect_success; ?>
-</div>
-<?php endif; ?>
-<?php if( $mes_db_select_success ) : ?>
-<div role="alert" class="alert alert-success">
-	<strong>DB</strong> <?php echo $mes_db_select_success; ?>
-</div>
-<?php endif; ?>
-<?php if( $mes_db_closed ) : ?>
-<div role="alert" class="alert alert-warning">
-	<strong>DB</strong> <?php echo $mes_db_closed; ?>
-</div>
-<?php endif; ?>
-<?php if( is_ssl() ) : ?>
-<div role="alert" class="alert alert-success">
-	<strong>SSL</strong><p>SSL connection.</p>
-</div>
-<?php else : ?>
-<div role="alert" class="alert alert-danger">
-	<strong>SSL</strong><p>No SSL connection.</p>
-</div>
-<?php endif; ?>
 
 	<form class="form-horizontal" method="POST" action="">
 		<div class="form-group">

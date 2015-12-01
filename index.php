@@ -10,4 +10,3 @@ $contents = file_get_contents( dirname(__FILE__) . '/tpl/index.tpl' );
 $contents = str_replace( '<%CONTENTS%>', $alert, $contents );
 
 echo $contents;
-
