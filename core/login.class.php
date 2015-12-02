@@ -46,7 +46,7 @@ EOM;
 		return $row[$key];
 	}
 
-	public function login( $user, $password ) {
+	public function login_check( $user, $password ) {
 		$user = $_POST['user'];
 		$password = $_POST['password'];
 		$password_hash = md5( $password . $this->get_user_data( 'salt' ) );
@@ -55,7 +55,7 @@ EOM;
 	}
 
 	public function login_message() {
-		if( $this->login( $_POST['user'], $_POST['password'] ) ) :
+		if( $this->login_check( $_POST['user'], $_POST['password'] ) ) :
 $html = <<<EOM
 <div role="alert" class="alert alert-success">
 	<strong>LOGIN</strong> <p>success.</p>
