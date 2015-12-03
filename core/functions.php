@@ -6,19 +6,24 @@ function is_ssl() {
 }
 
 function ssl_message() {
-        if( is_ssl() ) :
+	if( is_ssl() ) :
 $html = <<<EOM
 <div role="alert" class="alert alert-success">
 	<strong>SSL</strong> <p>Secure connection.</p>
 </div>
 EOM;
-        else :
+	else :
 $html = <<<EOM
 <div role="alert" class="alert alert-danger">
 	<strong>SSL</strong> <p>Insecure connection.</p>
 </div>
 EOM;
-        endif;
+	endif;
 
 	return $html;
+}
+
+// エスケープ
+function html_esc( $str ) {
+	return htmlspecialchars( $str, ENT_QUOTES, 'UTF-8' );
 }

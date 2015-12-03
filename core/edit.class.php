@@ -5,13 +5,13 @@ require_once( dirname(__FILE__) . '/login.class.php' );
 
 class Edit {
 
-public function register() {
-	$label = $_POST['label'];
-	$user = $_POST['user'];
-	$password = $_POST['password'];
-	$note = $_POST['note'];
-	$url = $_POST['url'];
-	$category = $_POST['category'];
-}
+	public function register() {
+		$label = esc_html( $_POST['label'] );
+		$user = esc_html( $_POST['user'] );
+		$password = esc_html( $_POST['password'] );
+		$note = esc_html( $_POST['note'] );
+		$url = esc_html( $_POST['url'] );
+		$category = esc_html( $_POST['category'] );
+	}
 
 } // class Edit end
