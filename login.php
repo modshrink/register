@@ -1,7 +1,7 @@
 <?php
-require_once( dirname(__FILE__) . '/core/login.class.php' );
+require_once( dirname(__FILE__) . '/core/DB.class.php' );
 
-$login = new Login();
+$login = new DB();
 
 $alert = $login->login_message();
 

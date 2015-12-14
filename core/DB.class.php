@@ -2,7 +2,7 @@
 require_once( dirname(__FILE__) . '/../config.php' );
 require_once( dirname(__FILE__) . '/functions.php' );
 
-class Login {
+class DB {
 	private $mysqli = null;
 
 	function __construct() {
@@ -37,6 +37,31 @@ EOM;
 		endif;
 
 		return $html;
+	}
+
+	/* データの挿入 */
+	public function insert_data( $array ) {
+		// SQLに流し込むデータを整形
+		foreach( $array as $key => $value ) {
+			$col_name .= $key . ",";
+			$col_value .= "'" . $value . "',";
+		}
+		// 最後のカンマを抜く
+		$col_name = mb_substr( $col_name, 0, ( mb_strlen( $col_name ) -1) );
+		$col_value = mb_substr( $col_value, 0, ( mb_strlen( $col_value ) -1) );
+
+		// SQL
+		$sql = $this->mysqli->query( "INSERT INTO data ( $col_name ) VALUES ( $col_value )" );
+		//var_dump( $sql );
+	}
+
+	/* 保存されたデータを取得 */
+	public function get_register_data() {
+		$result = $this->mysqli->query( "SELECT * FROM data" );
+		while( $row = $result->fetch_assoc() ) {
+			echo $row["id"];
+		}
+		//return $row[$key];
 	}
 
 	/* DBに格納されたユーザオプションの値を取得 */

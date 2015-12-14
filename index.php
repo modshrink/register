@@ -1,10 +1,12 @@
 <?php
-require_once( dirname(__FILE__) . '/core/login.class.php' );
+require_once( dirname(__FILE__) . '/core/DB.class.php' );
 
-$login = new Login();
+$DB = new DB();
 
-$alert = $login->db_connect_check_message();
+$alert = $DB->db_connect_check_message();
 $alert .= ssl_message();
+
+echo $DB->get_register_data();
 
 $contents = file_get_contents( dirname(__FILE__) . '/tpl/index.tpl' );
 $contents = str_replace( '<%CONTENTS%>', $alert, $contents );
