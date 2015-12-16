@@ -6,9 +6,9 @@ $DB = new DB();
 $alert = $DB->db_connect_check_message();
 $alert .= ssl_message();
 
-echo $DB->get_register_data();
+$table = $DB->get_register_data();
 
 $contents = file_get_contents( dirname(__FILE__) . '/tpl/index.tpl' );
-$contents = str_replace( '<%CONTENTS%>', $alert, $contents );
+$contents = str_replace( '<%CONTENTS%>', $alert . $table, $contents );
 
 echo $contents;

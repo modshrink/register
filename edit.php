@@ -22,24 +22,8 @@ $card_number = esc_html( $_POST['card_number'] );
 $card_security_code = esc_html( $_POST['card_security_code'] );
 $card_expiry_date = esc_html( $_POST['card_expiry_date'] );
 
-$inputs = array(
-	'label',
-	'user',
-	'password',
-	'note',
-	'url',
-	'created',
-	'category',
-	'license_key',
-	'card_name',
-	'card_type',
-	'card_number',
-	'card_security_code',
-	'card_expiry_date',
-);
-
 $input_array = array();
-foreach( $inputs as $input ) {
+foreach( input_data_list() as $input ) {
 	$input_array[$input] = esc_html( $_POST[$input] );
 }
 

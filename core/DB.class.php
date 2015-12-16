@@ -56,12 +56,26 @@ EOM;
 	}
 
 	/* 保存されたデータを取得 */
-	public function get_register_data() {
-		$result = $this->mysqli->query( "SELECT * FROM data" );
+	public function get_register_data( $id ) {
+		$result = $this->mysqli->query( "SELECT * FROM data WHERE id = $id" );
+
+		$html = <<<EOM
+<table class="table table-condensed">
+	<tbody>
+EOM;
 		while( $row = $result->fetch_assoc() ) {
-			echo $row["id"];
+			foreach( input_data_list() as $input ) {
+				$html .= '<tr>';
+				$html .= '<th class="col-md-3">' . $input . '</th>';
+				$html .= '<td class="col-md-9">' . $row["$input"] . '</td>';
+				$html .= '</tr>';
+			}
 		}
-		//return $row[$key];
+		$html .= <<<EOM
+	</tbody>
+</table>
+EOM;
+		return $html;
 	}
 
 	/* DBに格納されたユーザオプションの値を取得 */
