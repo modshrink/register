@@ -13,7 +13,6 @@ $user = esc_html( $_POST['user'] );
 $password = esc_html( $_POST['password'] );
 $note = esc_html( $_POST['note'] );
 $url = esc_html( $_POST['url'] );
-$created = esc_html( $_POST['created'] );
 $category = esc_html( $_POST['category'] );
 $license_key = esc_html( $_POST['license_key'] );
 $card_name = esc_html( $_POST['card_name'] );

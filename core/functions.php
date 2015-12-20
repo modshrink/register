@@ -34,9 +34,7 @@ function input_data_list() {
 		'label',
 		'user',
 		'password',
-		'note',
 		'url',
-		'created',
 		'category',
 		'license_key',
 		'card_name',
@@ -44,6 +42,7 @@ function input_data_list() {
 		'card_number',
 		'card_security_code',
 		'card_expiry_date',
+		'note',
 	);
 	return $arr;
 }

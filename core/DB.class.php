@@ -51,8 +51,7 @@ EOM;
 		$col_value = mb_substr( $col_value, 0, ( mb_strlen( $col_value ) -1) );
 
 		// SQL
-		$sql = $this->mysqli->query( "INSERT INTO data ( $col_name ) VALUES ( $col_value )" );
-		//var_dump( $sql );
+		$this->mysqli->query( "INSERT INTO data ( $col_name, created ) VALUES ( $col_value, NULL )" );
 	}
 
 	/* 保存されたデータを取得 */
