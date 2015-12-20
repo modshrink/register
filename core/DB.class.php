@@ -39,6 +39,31 @@ EOM;
 		return $html;
 	}
 
+	/* テーブルの作成 */
+
+	public function create_table( $table_name ) {
+		$sql = "CREATE TABLE $table_name (
+			id int AUTO_INCREMENT NOT NULL,
+			label text NOT NULL,
+			user text,
+			password text,
+			note text,
+			url text,
+			created timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+			modified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+			category text,
+			license_key text,
+			card_name text,
+			card_type text,
+			card_number int(16),
+			card_security_code int(3),
+			card_expiry_date date,
+			PRIMARY KEY ( id ) )";
+		$request = $this->mysqli->query( $sql );
+		var_dump($request);
+		echo $table_name . ' created' . $request;
+	}
+
 	/* データの挿入 */
 	public function insert_data( $array ) {
 		// SQLに流し込むデータを整形
