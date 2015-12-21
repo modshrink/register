@@ -120,6 +120,7 @@
 			<button type="submit" class="btn btn-default">Submit</button>
 		</div>
 	</div>
+	<input type="hidden" name="submit" value="1" />
 </form>
 
 </div> <!-- .container -->

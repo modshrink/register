@@ -46,3 +46,22 @@ function input_data_list() {
 	);
 	return $arr;
 }
+
+// 出力値のリスト
+function output_data_list() {
+	$arr = array(
+		'label',
+		'user',
+		'password',
+		'url',
+		'category',
+		'license_key',
+		'card_name',
+		'card_type',
+		'card_number',
+		'card_security_code',
+		'card_expiry_date',
+		'note',
+	);
+	return $arr;
+}
