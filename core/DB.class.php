@@ -60,8 +60,20 @@ EOM;
 			card_expiry_date date,
 			PRIMARY KEY ( id ) )";
 		$request = $this->mysqli->query( $sql );
-		var_dump($request);
-		echo $table_name . ' created' . $request;
+		if( $request ) :
+$html = <<<EOM
+<div role="alert" class="alert alert-success">
+	<strong>DB</strong> <p>Create $table_name table success.</p>
+</div>
+EOM;
+		else :
+$html = <<<EOM
+<div role="alert" class="alert alert-danger">
+	<strong>DB</strong> <p>Table $table_name not created.</p>
+</div>
+EOM;
+		endif;
+		return $html;
 	}
 
 	/* データの挿入 */

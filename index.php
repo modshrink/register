@@ -2,10 +2,10 @@
 require_once( dirname(__FILE__) . '/core/DB.class.php' );
 
 $DB = new DB();
-$DB->create_table( 'data' );
 
 $alert = $DB->db_connect_check_message();
 $alert .= ssl_message();
+$alert .= $DB->create_table( 'data' );
 
 //$table = $DB->get_register_data();
 
