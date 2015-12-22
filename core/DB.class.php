@@ -100,11 +100,13 @@ EOM;
 	<tbody>
 EOM;
 		while( $row = $result->fetch_assoc() ) {
-			foreach( input_data_list() as $input ) {
-				$html .= '<tr>';
-				$html .= '<th class="col-md-3">' . $input . '</th>';
-				$html .= '<td class="col-md-9">' . $row["$input"] . '</td>';
-				$html .= '</tr>';
+			foreach( output_data_list() as $input ) {
+				if( $row[$input] ) {
+					$html .= '<tr>';
+					$html .= '<th class="col-md-3">' . $input . '</th>';
+					$html .= '<td class="col-md-9">' . $row[$input] . '</td>';
+					$html .= '</tr>';
+				}
 			}
 		}
 		$html .= <<<EOM

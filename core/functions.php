@@ -62,6 +62,8 @@ function output_data_list() {
 		'card_security_code',
 		'card_expiry_date',
 		'note',
+		'created',
+		'modified',
 	);
 	return $arr;
 }
