@@ -38,7 +38,7 @@
 	<div class="form-group">
 		<label class="col-sm-2" for="pm-label">Label</label>
 		<div class="col-sm-10">
-			<input id="pm-label" class="form-control" type="text" name="label" value="" />
+			<input id="pm-label" class="form-control" type="text" name="label" value="<%label%>" />
 		</div>
 	</div>
 	<div class="form-group">
@@ -54,31 +54,31 @@
 	<div class="form-group">
 		<label class="col-sm-2" for="pm-user">User</label>
 		<div class="col-sm-10">
-			<input id="pm-user" class="form-control" type="text" name="user" value="" />
+			<input id="pm-user" class="form-control" type="text" name="user" value="<%user%>" />
 		</div>
 	</div>
 	<div class="form-group">
 		<label class="col-sm-2" for="pm-password">Password</label>
 		<div class="col-sm-10">
-			<input id="pm-password" class="form-control" type="text" name="password" value="" />
+			<input id="pm-password" class="form-control" type="text" name="password" value="<%password%>" />
 		</div>
 	</div>
 	<div class="form-group">
 		<label class="col-sm-2" for="pm-url">URL</label>
 		<div class="col-sm-10">
-			<input id="pm-url" class="form-control" type="text" name="url" value="" />
+			<input id="pm-url" class="form-control" type="text" name="url" value="<%url%>" />
 		</div>
 	</div>
 	<div class="form-group">
 		<label class="col-sm-2" for="pm-license">License Key</label>
 		<div class="col-sm-10">
-			<input id="pm-license_key" class="form-control" type="text" name="license_key" value="" />
+			<input id="pm-license_key" class="form-control" type="text" name="license_key" value="<%license_key%>" />
 		</div>
 	</div>
 	<div class="form-group">
 		<label class="col-sm-2" for="pm-card_name">Card User Name</label>
 		<div class="col-sm-10">
-			<input id="pm-card_name" class="form-control" type="text" name="card_name" value="" />
+			<input id="pm-card_name" class="form-control" type="text" name="card_name" value="<%card_name%>" />
 		</div>
 	</div>
 	<div class="form-group">
@@ -94,25 +94,25 @@
 	<div class="form-group">
 		<label class="col-sm-2" for="pm-card_number">Card Number</label>
 		<div class="col-sm-10">
-			<input id="pm-card_number" class="form-control" type="text" name="card_number" value="" />
+			<input id="pm-card_number" class="form-control" type="text" name="card_number" value="<%card_number%>" />
 		</div>
 	</div>
 	<div class="form-group">
 		<label class="col-sm-2" for="pm-card_security_code">Card Security Code</label>
 		<div class="col-sm-10">
-			<input id="pm-card_security_code" class="form-control" type="text" name="card_security_code" value="" />
+			<input id="pm-card_security_code" class="form-control" type="text" name="card_security_code" value="<%card_security_code%>" />
 		</div>
 	</div>
 	<div class="form-group">
 		<label class="col-sm-2" for="pm-card_expiry_date">Card Expiry Date</label>
 		<div class="col-sm-10">
-			<input id="pm-card_expiry_date" class="form-control" type="text" name="card_expiry_date" value="" />
+			<input id="pm-card_expiry_date" class="form-control" type="text" name="card_expiry_date" value="<%card_expiry_date%>" />
 		</div>
 	</div>
 	<div class="form-group">
 		<label class="col-sm-2">Note</label>
 		<div class="col-sm-10">
-			<textarea class="form-control" name="note" rows="5"></textarea>
+			<textarea class="form-control" name="note" rows="5"><%note%></textarea>
 		</div>
 	</div>
 	<div class="form-group">

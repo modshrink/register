@@ -91,6 +91,19 @@ EOM;
 		$this->mysqli->query( "INSERT INTO data ( $col_name, created ) VALUES ( $col_value, NULL )" );
 	}
 
+	/* データの更新 */
+	public function update_data( $id, $array ) {
+		// SQLに流し込むデータを整形
+		foreach( $array as $key => $value ) {
+			$col_data .= $key . " = '" . $value . "',";
+		}
+		// 最後のカンマを抜く
+		$col_data = mb_substr( $col_data, 0, ( mb_strlen( $col_data ) -1) );
+
+		// SQL
+		$this->mysqli->query( "UPDATE data SET $col_data WHERE id = $id" );
+	}
+
 	/* 保存されたデータを取得 */
 	public function get_register_data( $id ) {
 		$result = $this->mysqli->query( "SELECT * FROM data WHERE id = $id" );
@@ -114,6 +127,21 @@ EOM;
 </table>
 EOM;
 		return $html;
+	}
+
+	/* 保存されたデータを取得 */
+	public function get_register_data_array( $id ) {
+		$result = $this->mysqli->query( "SELECT * FROM data WHERE id = $id" );
+
+		$array = array();
+		while( $row = $result->fetch_assoc() ) {
+			foreach( output_data_list() as $input ) {
+				if( $row[$input] ) {
+					$array[$input] = $row[$input];
+				}
+			}
+		}
+		return $array;
 	}
 
 	/* DBに格納されたユーザオプションの値を取得 */
