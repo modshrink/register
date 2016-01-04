@@ -175,4 +175,4 @@ EOM;
 		endif;
 		return $html;
 	}
-} // class Login end
+}

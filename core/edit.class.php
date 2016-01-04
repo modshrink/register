@@ -14,4 +14,4 @@ class Edit {
 		$category = esc_html( $_POST['category'] );
 	}
 
-} // class Edit end
+}
